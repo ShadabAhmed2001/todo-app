@@ -19,11 +19,10 @@ h1{
 
 
 .getinput{
-    background-color: darkolivegreen;
     padding: 20px;
     display: flex; 
     gap: 40px;
-    box-shadow: 5px 5px 7px 2px black;
+    box-shadow: 0px 0px 7px 2px black;
 }
 
 
@@ -32,18 +31,22 @@ h1{
     outline: none;
     border: none;
     font-size:20px;
-    background-color: darkolivegreen;
+    background-color: transparent;
     border-bottom: 2px solid black;
     width: 400px;
     letter-spacing: 1px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
-    color: wheat;
+    color: black;
+}
+
+.getinput input:focus{
+    background-color: lightgray;
 }
 
 
 .getinput input::placeholder{
-    color: wheat;
+    color: black;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -53,7 +56,7 @@ h1{
 
 .getinput h3{
     background-color: black;
-    color: lightgray;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: centers;
@@ -72,9 +75,9 @@ h1{
     border: none;
     outline: none;
     border-radius: 0px 10px;
-    background-color: rgb(175, 174, 174);
+    background-color: rgb(94, 92, 92);
     cursor: pointer;
-    /* transition: all 0.1s; */
+    color: white;
     font-weight: bold;
 }
 
@@ -84,21 +87,21 @@ h1{
 
 .getinput button:active{
     background-color: black;
-    color: rgb(175, 174, 174);
+    color: white;
 }
 
 
 
 .task-container{
     width: 70%;
-    background-color: rgb(165, 142, 42) ;
+    background-color: rgb(228, 225, 225) ;
     padding: 0px 10px 10px 10px;
     height: 68vh;
     overflow: scroll;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    box-shadow: 0px 0px 7px 3px rgb(105, 91, 27);
+    box-shadow: 0px 0px 7px 3px black;
     border-radius: 5px;
 }
 .task-container::-webkit-scrollbar{
@@ -109,14 +112,15 @@ h1{
 
 .task-container .search-todo{
     width: 100%;
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
     padding: 20px; 
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     position: sticky;
     top: 0px;
-    background-color:rgb(165, 142, 42);
+    background-color: rgb(228, 225, 225);
+    box-shadow: 0px 2px 4px 0px black;
     z-index: 999;
 }
 
@@ -126,7 +130,7 @@ h1{
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: rgb(165, 142, 42);
+    background-color: rgb(228, 225, 225);
     border-bottom: 2px solid black;
     letter-spacing: 1px;
 }
@@ -134,18 +138,22 @@ h1{
 .search-todo input::placeholder{
     text-align: center;
     font-size: 20px;
-    color: rgb(248, 227, 187);
+    color: black;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 1px;
 }
 
+.search-todo input:focus{
+    background-color: lightgray;
+}
+
 .search-todo button{
-    padding: 10px 10px;
+    padding: 5px 15px;
     border: none;
     outline: none;
-    background-color: orange;
-    color: black;
+    background-color: red;
+    color: white;
     cursor: pointer;
     border-radius: 0px 10px;
     font-size: 18px;
@@ -158,8 +166,7 @@ h1{
 }
 
 .search-todo button:active{
-    background-color: black;
-    color: orange;
+    filter: brightness(0.8);
 }
 
 /*  below is the css for entered tasks */

@@ -67,7 +67,7 @@ const App = () => {
           autoFocus
         />
         <button onClick={updateTodos}>Add Task</button>
-        <h3>Tasks count: {todosArr.length}</h3>
+        <h3>Tasks count: {filteredTodos.length}</h3>
       </div>
 
       <div className="task-container">
