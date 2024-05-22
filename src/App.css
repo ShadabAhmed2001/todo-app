@@ -75,19 +75,18 @@ h1{
     border: none;
     outline: none;
     border-radius: 0px 10px;
-    background-color: rgb(94, 92, 92);
+    background-color: rgb(1, 70, 1);
     cursor: pointer;
     color: white;
     font-weight: bold;
 }
 
 .getinput button:hover{
-    filter: brightness(1.1);
+    filter: brightness(1.2);
 }
 
 .getinput button:active{
-    background-color: black;
-    color: white;
+    background-color: rgb(1, 43, 1);
 }
 
 
