@@ -238,3 +238,17 @@ filter: brightness(1.2);
 .all:active,.pending:active,.finished:active{
     filter: brightness(0.9);
 }
+
+.toggle-calendar{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: darkcyan;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

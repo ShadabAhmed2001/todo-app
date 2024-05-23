@@ -1,62 +1,77 @@
+
+
 import React, { useState } from "react";
 import "./App.css";
 import { GoDotFill } from "react-icons/go";
 import { FaCheck } from "react-icons/fa";
 import { FaDeleteLeft } from "react-icons/fa6";
 import ZoomButtons from "./components/ZoomBtns";
+import Calendar from 'react-calendar';
+import { FaCalendarPlus } from "react-icons/fa6";
+import { FaCalendarMinus } from "react-icons/fa6";
+import 'react-calendar/dist/Calendar.css';  // Import the CSS for the calendar
 
 const App = () => {
-  let [todo, setTodo] = useState("");
-  let [todosArr, setTodosArr] = useState([]);
-  let [searchTodo, setSearchTodo] = useState("");
-  let [filter, setFilter] = useState("all");
+  const [todo, setTodo] = useState("");
+  const [todosArr, setTodosArr] = useState([]);
+  const [searchTodo, setSearchTodo] = useState("");
+  const [filter, setFilter] = useState("all");
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isCalendarVisible, setIsCalendarVisible] = useState(false);
 
-  function updateTodo({ target: { value } }) {
+  const updateTodo = ({ target: { value } }) => {
     setSearchTodo("");
     setTodo(value);
-  }
+  };
 
-  function updateTodos() {
+  const updateTodos = () => {
     if (todo) {
-      const newTodo = { task: todo, status: false };
+      const newTodo = { task: todo, status: false, date: selectedDate };
       setTodosArr([...todosArr, newTodo]);
       setTodo("");
     }
-  }
+  };
 
-  function toggleFinish(index) {
+  const toggleFinish = (index) => {
     const newTodosArr = todosArr.map((todo, i) =>
       i === index ? { ...todo, status: !todo.status } : todo
-    );  
-
+    );
     setTodosArr(newTodosArr);
-  }
+  };
 
-  
-  function deleteTodo(index) {
+  const deleteTodo = (index) => {
     const newTodos = todosArr.filter((_, i) => i !== index);
     setTodosArr(newTodos);
-  }
+  };
 
-  function updateSearchTodo({ target: { value } }) {
+  const updateSearchTodo = ({ target: { value } }) => {
     setSearchTodo(value);
-  }
+  };
 
-  function clear() {
+  const clear = () => {
     setTodosArr([]);
-  }
+  };
 
-  function filterPending() {
+  const filterPending = () => {
     setFilter("pending");
-  }
+  };
 
-  function filterCompleted() {
+  const filterCompleted = () => {
     setFilter("completed");
-  }
+  };
 
-  function showAll() {
+  const showAll = () => {
     setFilter("all");
-  }
+  };
+
+  const handleDateChange = (date) => {
+    // console.log(date);
+    setSelectedDate(date);
+  };
+
+  const toggleCalendarVisibility = () => {
+    setIsCalendarVisible(!isCalendarVisible);
+  };
 
   const filteredTodos = todosArr.filter((todo) => {
     if (filter === "pending") {
@@ -68,15 +83,24 @@ const App = () => {
     }
   });
 
-  console.log(todosArr);
+  const dateFilteredTodos = filteredTodos.filter((todo) =>
+    // console.log(new Date(todo.date).toDateString())
+    new Date(todo.date).toDateString() === selectedDate.toDateString()
+  );
 
-  const searchedTodos = filteredTodos.filter((todo) =>
+  const searchedTodos = dateFilteredTodos.filter((todo) =>
     todo.task.toLowerCase().includes(searchTodo.toLowerCase())
   );
 
   return (
     <section>
-      <ZoomButtons/>
+      <ZoomButtons />
+      <button onClick={toggleCalendarVisibility} className="toggle-calendar">
+        {isCalendarVisible ? <FaCalendarMinus /> : <FaCalendarPlus />}
+      </button>
+      {isCalendarVisible && (
+        <Calendar onChange={handleDateChange} />
+      )}
       <h1>
         <span>~</span> To-Do Application <span>~</span>
       </h1>
@@ -87,6 +111,7 @@ const App = () => {
           onChange={updateTodo}
           value={todo}
           autoFocus
+          aria-label="Task input"
         />
         <button onClick={updateTodos} className="add">Add Task</button>
         <button onClick={clear} className="clear">Clear All</button>
@@ -100,6 +125,7 @@ const App = () => {
             placeholder="... Search for task ..."
             onChange={updateSearchTodo}
             value={searchTodo}
+            aria-label="Search tasks"
           />
           <div className="sort">
             <button className="all" onClick={showAll}>All Tasks</button>
@@ -109,28 +135,27 @@ const App = () => {
         </div>
 
         <div className="show-todos">
-          {searchedTodos.map((todo, index) => {
-            return (
-              <div
-                className={`list ${todo.status ? "completed" : ""}`}
-                key={index}
-              >
-                <GoDotFill />
-                <h2>{todo.task}</h2>
-                <FaCheck
-                  className="done"
-                  onClick={() => toggleFinish(index)}
-                />
-                <FaDeleteLeft
-                  className="delete"
-                  onClick={() => deleteTodo(index)}
-                />
-              </div>
-            );
-          })}
+          {searchedTodos.map((todo, index) => (
+            <div
+              className={`list ${todo.status ? "completed" : ""}`}
+              key={index}
+            >
+              <GoDotFill />
+              <h2>{todo.task}</h2>
+              <FaCheck
+                className="done"
+                onClick={() => toggleFinish(index)}
+                aria-label={`Mark task ${todo.status ? "incomplete" : "complete"}`}
+              />
+              <FaDeleteLeft
+                className="delete"
+                onClick={() => deleteTodo(index)}
+                aria-label="Delete task"
+              />
+            </div>
+          ))}
         </div>
       </div>
-      
     </section>
   );
 };
