@@ -95,12 +95,14 @@ const App = () => {
   return (
     <section>
       <ZoomButtons />
+      <div className="calender">
       <button onClick={toggleCalendarVisibility} className="toggle-calendar">
         {isCalendarVisible ? <FaCalendarMinus /> : <FaCalendarPlus />}
       </button>
       {isCalendarVisible && (
         <Calendar onChange={handleDateChange} />
       )}
+      </div>
       <h1>
         <span>~</span> To-Do Application <span>~</span>
       </h1>
