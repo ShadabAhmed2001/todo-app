@@ -23,6 +23,7 @@ h1{
     display: flex; 
     gap: 40px;
     box-shadow: 0px 0px 7px 2px black;
+    margin-top: 30px;
 }
 
 
@@ -183,7 +184,7 @@ h1{
 }
 
 .done{
-    color: rgb(2, 104, 2);
+    color: rgb(3, 180, 3);
     filter: brightness(1.5);
 
 }
@@ -240,8 +241,8 @@ filter: brightness(1.2);
 }
 
 .toggle-calendar{
-    padding: 10px;
-    font-size: 20px;
+    padding: 7px 30px;
+    font-size: 23px;
     border-radius: 10px;
     outline: none;
     border: none;
@@ -253,11 +254,27 @@ filter: brightness(1.2);
     align-items: center;
 }
 
+.toggle-calendar:hover {
+    filter: brightness(1.1);
+}
+
+.toggle-calendar:active{
+    filter: brightness(0.9);
+}
+
 .calender{
     position: absolute;
-    top:10px;
-    left: 50px;
+    top:70px;
+    right: 50px;
     z-index: 9999;
 }
 
+.done:active{
+    filter: brightness(0.9);
+}
 
+
+
+.list.completed .done{
+    color: rgb(14, 65, 14);
+}

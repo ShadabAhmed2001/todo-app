@@ -1,9 +1,8 @@
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px){
 
   
     .getinput {
         width: 100%;
-        /* align-items: center; */
         flex-direction: column;
     }
   
@@ -42,26 +41,20 @@
     }
 
     .calender button{
-        padding: 10px 20px;
-        font-size: 25px;
+        padding: 7px 20px;
+        font-size: 20px;
     }
     .zoom{
         display: none;
     }
   }
   
-  /* Mobile Styles */
-  @media (max-width: 480px) {
+  /* Mobile breakpoint */
+  @media only screen and (max-width: 480px) {
 
-    h1{
-        margin-top: 0px;
-    }
+
     .task-container {
       height: 60vh;
-    }
-
-    .getinput{
-        margin-top: 80px;
     }
   
     .getinput input {
@@ -121,13 +114,8 @@
         font-weight: normal;
     }
 
-    .calender{
-        position: absolute;
-        top: 85px;
-    }
-
     .calender button{
-        padding: 15px 25px;
-        font-size: 25px;
-    }
+      padding: 7px 10px;
+      font-size: 20px;
+  }
   }

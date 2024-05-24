@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import "./style.css"
 import { GoZoomIn } from "react-icons/go";
 import { GoZoomOut } from "react-icons/go";
