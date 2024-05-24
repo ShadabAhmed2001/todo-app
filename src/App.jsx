@@ -10,6 +10,7 @@ import Calendar from 'react-calendar';
 import { FaCalendarPlus } from "react-icons/fa6";
 import { FaCalendarMinus } from "react-icons/fa6";
 import 'react-calendar/dist/Calendar.css';  // Import the CSS for the calendar
+import "./media.css"
 
 const App = () => {
   const [todo, setTodo] = useState("");
@@ -94,14 +95,14 @@ const App = () => {
 
   return (
     <section>
-      <ZoomButtons />
+      <ZoomButtons/>
       <div className="calender">
-      <button onClick={toggleCalendarVisibility} className="toggle-calendar">
-        {isCalendarVisible ? <FaCalendarMinus /> : <FaCalendarPlus />}
-      </button>
-      {isCalendarVisible && (
-        <Calendar onChange={handleDateChange} />
-      )}
+        <button onClick={toggleCalendarVisibility} className="toggle-calendar">
+          {isCalendarVisible ? <FaCalendarMinus /> : <FaCalendarPlus />}
+        </button>
+        {isCalendarVisible && (
+          <Calendar onChange={handleDateChange} />
+        )}
       </div>
       <h1>
         <span>~</span> To-Do Application <span>~</span>
@@ -117,7 +118,7 @@ const App = () => {
         />
         <button onClick={updateTodos} className="add">Add Task</button>
         <button onClick={clear} className="clear">Clear All</button>
-        <h3>Tasks count: {searchedTodos.length}</h3>
+        <h3 className="counter">Tasks count: {searchedTodos.length}</h3>
       </div>
 
       <div className="task-container">

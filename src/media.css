@@ -1,0 +1,133 @@
+@media (max-width: 768px) {
+
+  
+    .getinput {
+        width: 100%;
+        /* align-items: center; */
+        flex-direction: column;
+    }
+  
+    .getinput input {
+      width: 100%;
+    }
+  
+    .getinput h3 {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .sort {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .all,
+    .pending,
+    .finished {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .task-container {
+      height: 70vh;
+      width: 100%;
+    }
+  
+    .search-todo {
+      flex-direction: column;
+    }
+
+    .search-todo input{
+      width: 100%;
+    }
+
+    .calender button{
+        padding: 10px 20px;
+        font-size: 25px;
+    }
+    .zoom{
+        display: none;
+    }
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 480px) {
+
+    h1{
+        margin-top: 0px;
+    }
+    .task-container {
+      height: 60vh;
+    }
+
+    .getinput{
+        margin-top: 80px;
+    }
+  
+    .getinput input {
+      font-size: 18px;
+    }
+  
+    .list {
+      font-size: 18px;
+    }
+  
+    .done,
+    .delete {
+      font-size: 20px;
+    }
+  
+    .toggle-calendar {
+      font-size: 20px;
+      padding: 10px;
+      margin: bottom 10px;
+    }
+  
+    .getinput {
+      gap: 15px;
+    }
+  
+    .getinput .add,
+    .getinput .clear {
+      font-size: 18px;
+      padding: 8px 16px;
+    }
+  
+    .getinput h3 {
+      font-size: 18px;
+    }
+  
+    .search-todo input {
+      font-size: 18px;
+      padding: 8px;
+      width: 100%;
+    }
+
+    .search-todo input::placeholder{
+        font-size: 17px;
+    }
+
+    .getinput input::placeholder{
+        text-align: center;
+    }
+
+    .sort{
+        flex-direction: row;
+    }
+
+    .sort button{
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    .calender{
+        position: absolute;
+        top: 85px;
+    }
+
+    .calender button{
+        padding: 15px 100px;
+        font-size: 25px;
+    }
+  }
